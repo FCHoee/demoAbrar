@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Online Visa Approval</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+        header {
+            background-color: lightgreen;
+            padding: 10px;
+            text-align: center;
+        }
+        footer {
+            background-color: lightgrey;
+            padding: 10px;
+            text-align: center;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+        .container {
+            margin: 50px auto;
+            width: 80%;
+            max-width: 600px;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        form {
+            text-align: center;
+        }
+        input {
+            margin-bottom: 10px;
+            padding: 5px;
+            width: 80%;
+            max-width: 300px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: lightblue;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: skyblue;
+        }
+        .hidden {
+            display: none;
+        }
+        .centered-image {
+            margin: auto;
+            display: block;
+            margin-top: 20px;
+        }
+        .congratulations-message {
+            color: red;
+            font-weight: bold;
+            margin-top: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Online Visa Approval</h1>
+    </header>
+    <div class="container" id="visaContainer">
+        <form id="visaForm">
+            <label for="eNumber">E Number:</label><br>
+            <input type="text" id="eNumber" name="eNumber" required><br>
+            <label for="passportNumber">Passport Number:</label><br>
+            <input type="text" id="passportNumber" name="passportNumber" required><br>
+            <label for="password">Password:</label><br>
+            <input type="password" id="password" name="password" required><br>
+            <button type="submit">Check Visa Approval</button>
+        </form>
+        <p id="error" style="color: red; display: none;">The provided information does not match our records.</p>
+    </div>
+    <footer>
+        <p>Please enter your details below to check for the approval of your visa.</p>
+    </footer>
+    <div id="approvalInterface" class="hidden">
+        <p class="congratulations-message">CONGRATULATIONS!!!</p>
+        <img src="img 2.jpg" alt="image 1" class="centered-image">
+    </div>
+    <script>
+        document.getElementById("visaForm").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var eNumber = document.getElementById("eNumber").value;
+            var passportNumber = document.getElementById("passportNumber").value;
+            var password = document.getElementById("password").value;
+            if (eNumber === "12345678" && passportNumber === "0987654" && password === "visa123") {
+                document.getElementById("visaContainer").style.display = "none";
+                document.getElementById("approvalInterface").classList.remove("hidden");
+            } else {
+                document.getElementById("error").style.display = "block";
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+
+
+
+
+
